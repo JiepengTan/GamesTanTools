@@ -8,7 +8,25 @@ using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace GamesTan {
-    public static class EditorExtUtil {
+    // PrefabUtility
+    public static partial class EditorExtUtil {
+        public static UnityEngine.Object InstantiatePrefab(UnityEngine.Object assetComponentOrGameObject) {
+#if UNITY_EDITOR
+            return PrefabUtility.InstantiatePrefab(assetComponentOrGameObject);
+#endif
+            return null;
+        }
+
+        public static GameObject SaveAsPrefabAsset(GameObject instanceRoot, string assetPath) {
+#if UNITY_EDITOR
+            return PrefabUtility.SaveAsPrefabAsset(instanceRoot, assetPath);
+#endif
+            return null;
+        }
+    }
+
+    // AssetDatabase
+    public static partial class EditorExtUtil {
         public static string GetAssetPath(ScriptableObject obj) {
 #if UNITY_EDITOR
             return UnityEditor.AssetDatabase.GetAssetPath(obj);
@@ -75,6 +93,25 @@ namespace GamesTan {
         public static void ImportAsset(string path) {
 #if UNITY_EDITOR
             UnityEditor.AssetDatabase.ImportAsset(path);
+#endif
+        }
+
+        public static void Refresh() {
+#if UNITY_EDITOR
+            UnityEditor.AssetDatabase.Refresh();
+#endif
+        }
+
+
+        public static void DeleteAsset(string path) {
+#if UNITY_EDITOR
+            UnityEditor.AssetDatabase.DeleteAsset(path);
+#endif
+        }
+
+        public static void CreateAsset(UnityEngine.Object asset, string path) {
+#if UNITY_EDITOR
+            UnityEditor.AssetDatabase.CreateAsset(asset, path);
 #endif
         }
 
