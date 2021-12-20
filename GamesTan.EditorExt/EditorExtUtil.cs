@@ -1,4 +1,4 @@
-﻿// author : https://github.com/JiepengTan
+﻿// author : https://github.com/JiepengTan/GamesTanTools
 
 #if UNITY_EDITOR
 using UnityEditor;

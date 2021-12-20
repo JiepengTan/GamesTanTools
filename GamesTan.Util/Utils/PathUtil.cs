@@ -1,4 +1,4 @@
-﻿// author : https://github.com/JiepengTan
+﻿// author : https://github.com/JiepengTan/GamesTanTools
 using System;
 using System.Collections.Generic;
 using System.IO;
